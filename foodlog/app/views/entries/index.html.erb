@@ -1,0 +1,46 @@
+<%# <h1>Entries</h1> %>
+<% content_for :title do %>
+  foodlog &ndash; <%= DateTime.now %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+      <div class="table-responsive">
+
+          <h1 class='mt-5 bg-success text-center rounded'>Listing Entries</h1>
+        <table class="table table-bordered table-hover table-striped">
+          <thead class="text-center">
+            <tr>
+              <th>Meal Type</th>
+              <th>Calories</th>
+              <th>Protenis</th>
+              <th>Carbohydrates</th>
+              <th>Fats</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody class="text-center">
+            <% @entries.each do |entry| %>
+              <tr>
+                <td> <%= entry.meal_type %> </td>
+                <td> <%= entry.calories %> </td>
+                <td> <%= entry.proteins %> </td>
+                <td> <%= entry.carbohydrates %> </td>
+                <td> <%= entry.fats %> </td>
+                <td> <%= entry.meal_type %> </td>
+                <td> <%= link_to 'show', entry_path(entry) %> </td>
+                <td> <%= link_to 'edit', edit_entry_path(entry) %> </td>
+                <td> <%= link_to 'destroy', entry_path(entry), data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                          }  %> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

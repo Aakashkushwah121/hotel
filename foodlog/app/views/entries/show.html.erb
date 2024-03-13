@@ -1,0 +1,28 @@
+
+<p style="color: green"><%= notice %></p>
+
+<div class="card" style="width: 18rem;">
+
+<div id="entries">
+    <%# <h5 class="card-title; text-align: center">Card title</h5> %>
+
+    <div class="card-body">
+      <p>
+        
+        <h6><%= @entry.calories %> calories</h6>
+        <h6><%= @entry.proteins %> grams of protein</h6>
+        <h6><%= @entry.carbohydrates %> grams of carbohydrates</h6>
+        <h6><%= @entry.fats %> grams of fat</h6>
+
+      </p>
+    </div>
+</div>
+
+
+<div>
+  <%= link_to "Edit this entry", edit_entry_path(@entry), class:'btn btn-primary' %> |
+  <%= link_to "Back to entries", entries_path, class:'btn btn-warning' %> <br><br>
+
+  <%= button_to "Destroy this entry", @entry, method: :delete, class: 'btn btn-danger' %>
+
+</div>
